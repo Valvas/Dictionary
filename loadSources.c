@@ -12,6 +12,7 @@ source* loadSources()
 	char* c;
 	
 	source* firstSource = NULL;
+	source* src = NULL;
 	
 	FILE* file = NULL;
 	
@@ -22,7 +23,8 @@ source* loadSources()
 		while(fgets(sourcePath,NAME_SIZE,file) != NULL)
         {
             if((c = strchr(sourcePath,'\n')) != 0) *c = 0;
-			newSource(firstSource,sourcePath);
+			src = newSource(firstSource,sourcePath);
+			if(firstSource == NULL) firstSource = src;
         }
 		
 		fclose(file);

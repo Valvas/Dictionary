@@ -20,8 +20,6 @@ int main(int argc, char* argv[])
     }
 	
 	source* firstSource = loadSources();
-	
-	showSources(firstSource);
 
     return 0;
 }

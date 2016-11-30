@@ -15,8 +15,8 @@ typedef struct source source;
 int initProgram();
 
 void showSources(source*);
-void newSource(source*,char*);
 
 source* loadSources();
+source* newSource(source*,char*);
 
 #endif
