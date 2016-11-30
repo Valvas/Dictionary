@@ -18,8 +18,10 @@ int main(int argc, char* argv[])
         getchar();
         exit(0);
     }
+	
+	source* firstSource = loadSources();
+	
+	showSources(firstSource);
 
     return 0;
-	
-	//test
 }
