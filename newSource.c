@@ -18,9 +18,7 @@ source* newSource(source* firstSource, char* sourcePath)
 	
 	if(firstSource != NULL)
 	{
-		source* tmpSource = malloc(sizeof(source));
-		tmpSource->sourcePath = calloc(NAME_SIZE,sizeof(char));
-		tmpSource = firstSource;
+		source* tmpSource = firstSource;
 		
 		while(tmpSource->nextSource != NULL)
 		{
