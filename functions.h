@@ -13,6 +13,8 @@
 typedef struct source source;
 
 int initProgram();
+int checkFile(char*);
+int getFileSize(FILE*);
 
 void showSources(source*);
 

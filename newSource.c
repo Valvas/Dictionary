@@ -16,5 +16,19 @@ source* newSource(source* firstSource, char* sourcePath)
 	strcpy(newSource->sourcePath,sourcePath);
 	newSource->nextSource = NULL;
 	
+	if(firstSource != NULL)
+	{
+		source* tmpSource = malloc(sizeof(source));
+		tmpSource->sourcePath = calloc(NAME_SIZE,sizeof(char));
+		tmpSource = firstSource;
+		
+		while(tmpSource->nextSource != NULL)
+		{
+			tmpSource = tmpSource->nextSource;
+		}
+		
+		tmpSource->nextSource = newSource;
+	}
+	
 	return newSource;
 }
