@@ -40,7 +40,7 @@ void menu(source* firstSource)
                 case WORD_LIST : printf("\nList of words"); choice = 0; break;
                 case SEARCH_WORD : printf("\nSearch word"); choice = 0; break;
                 case ADD_WORD : printf("\nAdd new word"); choice = 0; break;
-                case MANAGE_SOURCES : /*manage_sources(firstSource);*/ choice = 0; break;
+                case MANAGE_SOURCES : manageSources(firstSource); choice = 0; break;
                 case EXIT : run = 0; break;
             }
         }

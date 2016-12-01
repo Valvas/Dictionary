@@ -1,0 +1,2 @@
+word1;Definition1;source1
+word2;Definition2;source2

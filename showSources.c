@@ -11,15 +11,17 @@ INFO -	This functions shows the path with the name of each source file
 
 **/
 
-void showSources(source* src)
+void showSources(source* src, int* count)
 {
 	/** Step 1 **/
 	if(src)
 	{
 		/** Step 2 **/
-		printf("Source path : %s\n",src->sourcePath);
+		printf("Source %d : %s\n",*count,src->sourcePath);
+		
+		*count += 1;
 		
 		/** Step 3 **/
-		showSources(src->nextSource);
+		showSources(src->nextSource,count);
 	}
 }
