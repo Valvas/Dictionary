@@ -5,6 +5,7 @@
 1 - Calling function 'initProgram' to check if sources list file can be opened
 2 - Exiting program with error message for user
 3 - Loading all sources in LIST_FILE (constant defined in "functions.h")
+4 - Call main menu
 
 **/
 
@@ -22,6 +23,9 @@ int main(int argc, char* argv[])
 	
 	/** Step 3 **/
 	source* firstSource = loadSources();
+	
+	/** Step 4 **/
+	menu(firstSource);
 
     return 0;
 }

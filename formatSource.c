@@ -1,7 +1,7 @@
 #include "functions.h"
 
 //REMOVE BLANKS AND LINE BREAKS AT THE BEGINNING OF THE FILE
-void beginning_format(char* content, int* size)
+void beginningFormat(char* content, int* size)
 {
     int k = 0;
 
@@ -17,7 +17,7 @@ void beginning_format(char* content, int* size)
 }
 
 //REMOVE BLANKS AFTER A LINE BREAK
-void remove_blank_after_line_break(char* content, int* size, int i)
+void removeBlankAfterLineBreak(char* content, int* size, int i)
 {
     int j = i + 1;
     int k = 0;
@@ -35,7 +35,7 @@ void remove_blank_after_line_break(char* content, int* size, int i)
 }
 
 //REMOVE BLANKS BEFORE A LINE BREAK
-void remove_blank_before_line_break(char* content, int* size, int i)
+void removeBlankBeforeLineBreak(char* content, int* size, int i)
 {
     int j = 1, k = 0;
 
@@ -53,7 +53,7 @@ void remove_blank_before_line_break(char* content, int* size, int i)
 }
 
 //CHECK IF THERE ARE NOT MORE OR LESS THAN THREE ARGUMENTS ON EACH LINE
-int check_number_of_arguments(char* content, int* size)
+int checkNumberOfArguments(char* content, int* size)
 {
     int i = 0, count = 0;
 
@@ -79,7 +79,7 @@ int check_number_of_arguments(char* content, int* size)
 }
 
 //PRINT NEW CONTENT IN SOURCE FILE
-void print_content_source_file(char* name, char* content)
+void printContentSourceFile(char* name, char* content)
 {
     FILE* file = NULL;
 
@@ -99,7 +99,7 @@ void print_content_source_file(char* name, char* content)
 }
 
 //SET CONTENT TO LOWERCASE AND FIRST LETTER OF DEFINITION TO UPPERCASE
-void set_content_to_lowercase(char* content, int* size)
+void setContentToLowercase(char* content, int* size)
 {
     int i = 0, count = 0;
 
@@ -131,7 +131,7 @@ void set_content_to_lowercase(char* content, int* size)
 }
 
 //REMOVE BLANKS AT THE END OF THE FILE
-void remove_blank_at_end(char* content, int* size)
+void removeBlankAtEnd(char* content, int* size)
 {
     int i = 0;
 

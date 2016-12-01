@@ -52,7 +52,7 @@ int checkFile(char* name)
                 /** REMOVE BLANKS AND LINE BREAKS AT THE BEGINNING OF THE FILE **/
                 while(content[0] == '\n' || content[0] == ' ')
                 {
-                    beginning_format(content,&size);
+                    beginningFormat(content,&size);
                 }
 
                 /** CHECK IF LINE DOES NOT START WITH A ';' AND IF THERE ARE NOT TWO ';' IN A ROW **/
@@ -67,24 +67,24 @@ int checkFile(char* name)
                 /** REMOVE BLANKS AFTER A LINE BREAK **/
                 while(content[i] == '\n' && (content[i + 1] == '\n' || content[i + 1] == ' '))
                 {
-                    remove_blank_after_line_break(content,&size,i);
+                    removeBlankAfterLineBreak(content,&size,i);
                 }
 
                 /** REMOVE BLANKS BEFORE A LINE BREAK **/
                 if(content[i] == '\n')
                 {
-                    remove_blank_before_line_break(content,&size,i);
+                    removeBlankBeforeLineBreak(content,&size,i);
                 }
             }
         }
 
         /** REMOVE BLANKS AT END OF THE FILE **/
-        remove_blank_at_end(content,&size);
+        removeBlankAtEnd(content,&size);
 
         content[size] = '\0'; /** END CONTENT AT NEW SIZE DEFINED AFTER REMOVING ALL BLANKS **/
 
         /** Step 5 **/
-        if((tooMuchArguments = check_number_of_arguments(content,&size)))
+        if((tooMuchArguments = checkNumberOfArguments(content,&size)))
         {
             printf("\nERROR : too much arguments in \"%s\" !\n",name);
 			printf("\nPress enter to continue...");
@@ -93,10 +93,10 @@ int checkFile(char* name)
         }
 
         /** Step 6 **/
-        set_content_to_lowercase(content,&size);
+        setContentToLowercase(content,&size);
 
         /** Step 7 **/
-        print_content_source_file(name,content);
+        printContentSourceFile(name,content);
 
         fclose(source);
         return 1;
@@ -105,8 +105,9 @@ int checkFile(char* name)
     /** IF FILE CAN NOT BE OPENED **/
     else
     {
-        printf("\nERROR : cannot open \"%s\" !\n");
+        printf("\nERROR : cannot open \"%s\" !\n",name);
         printf("\nPress enter to continue...");
         getchar();
+		return 0;
     }
 }

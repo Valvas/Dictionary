@@ -31,10 +31,11 @@ source* loadSources()
 		/** Step 3 **/
 		while(fgets(sourcePath,NAME_SIZE,file) != NULL)
         {
-            /** Step 4 **/
+            if((c = strchr(sourcePath,'\n')) != 0) *c = 0; /** Remove line break at end of 'sourcePath' **/
+			
+			/** Step 4 **/
 			if(checkFile(sourcePath))
 			{
-				if((c = strchr(sourcePath,'\n')) != 0) *c = 0;
 				src = newSource(firstSource,sourcePath);
 				if(firstSource == NULL) firstSource = src;
 			}
