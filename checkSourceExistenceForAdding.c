@@ -12,7 +12,7 @@ INFO -	This function checks if there is not already another source with the same
 
 **/
 
-int checkSourceExistence(source* firstSource, char* name)
+int checkSourceExistenceForAdding(source* firstSource, char* name)
 {	
 	/** Step 1 **/
 	source* tmpSource = firstSource;
@@ -26,6 +26,7 @@ int checkSourceExistence(source* firstSource, char* name)
 			/** Step 4 **/
 			if(strcmp(tmpSource->sourcePath,name) == 0)
 			{
+				CLEAR
 				printf("\nERROR : source file already exists !\n");
 				printf("\nPress enter to continue...");
 				getchar();
@@ -41,6 +42,7 @@ int checkSourceExistence(source* firstSource, char* name)
 	
 	else
 	{
+		CLEAR
 		printf("\nERROR : cannot create temporary source element !\n");
 		printf("\nPress enter to continue...");
 		getchar();

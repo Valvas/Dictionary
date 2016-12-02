@@ -15,7 +15,6 @@ EXEMPLE - folderPath -> "sources/" + fileName -> "test.txt" = folderPath -> "sou
 5 - Check if file exists and can be read (return 1 if yes and 0 if no)
 6 - Add the new source file in LIST_FILE (constant defined in "functions.h") by calling 'addSourceInList.c' (return 1 if data is added)
 7 - If 'addSourceInList' returned 1, create a new element 'source' to add in the linked list
-8 - If element successfully added in linked list, print confirmation
 
 **/
 
@@ -24,11 +23,9 @@ void addSource(source* firstSource)
 	char fileName[NAME_SIZE_NO_PATH];
 	char folderPath[NAME_SIZE];
 	
-	source* src = NULL;
-	
 	CLEAR
 	
-	printf("========================================\n\n");
+	printf("============================================================\n\n");
 	printf("Enter the name of the source file (without path) : ");
 	
 	/** Step 1 **/
@@ -41,7 +38,7 @@ void addSource(source* firstSource)
 	strcat(folderPath,fileName);
 	
 	/** Step 4 **/
-	if(checkSourceExistence(firstSource,folderPath))
+	if(checkSourceExistenceForAdding(firstSource,folderPath))
 	{
 		/** Step 5 **/
 		if(checkFile(folderPath))
@@ -50,12 +47,10 @@ void addSource(source* firstSource)
 			if(addSourceInList(folderPath))
 			{
 				/** Step 7 **/
-				src = newSource(firstSource,folderPath);
-				
-				/** Step 8 **/
-				if(src != NULL)
+				if(newSource(firstSource,folderPath))
 				{
-					printf("\nSUCCESS : new source created !\n");
+					CLEAR
+					printf("\nSUCCESS : source created !\n");
 					printf("\nPress enter to continue...");
 					getchar();
 				}

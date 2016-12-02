@@ -28,14 +28,18 @@ int entry(char*,int);
 int checkFile(char*);
 int getFileSize(FILE*);
 int addSourceInList(char*);
+int newSource(source*,char*);
+int removeSource(source*,source*);
 int checkNumberOfArguments(char*,int*);
-int checkSourceExistence(source*,char*);
+int checkSourceExistenceForAdding(source*,char*);
+int checkSourceExistenceForRemoving(source*,char*);
 
 long integer(int);
 
 void menu(source*);
 void cleanBuffer();
 void addSource(source*);
+void deleteSource(source*);
 void manageSources(source*);
 void showSources(source*,int*);
 void beginningFormat(char*,int*);
@@ -46,6 +50,6 @@ void removeBlankAfterLineBreak(char*,int*,int);
 void removeBlankBeforeLineBreak(char*,int*,int);
 
 source* loadSources();
-source* newSource(source*,char*);
+source* initSources(source*,char*);
 
 #endif

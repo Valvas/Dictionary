@@ -28,7 +28,7 @@ void manageSources(source* firstSource)
             switch(choice)
             {
                 case ADD_SOURCE :  addSource(firstSource); choice = 0; break;
-                case REMOVE_SOURCE : /*deleteSource(firstSource);*/ choice = 0; break;
+                case REMOVE_SOURCE : deleteSource(firstSource); choice = 0; break;
                 case SHOW_SOURCES :
 
                     CLEAR
