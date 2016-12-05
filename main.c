@@ -21,6 +21,10 @@ int main(int argc, char* argv[])
         exit(0);
     }
 	
+	primary* firstWord = malloc(sizeof(primary));
+	firstWord->wordTarget = malloc(sizeof(word));
+	firstWord->wordTarget = NULL;
+	
 	head* listHead = malloc(sizeof(head));
 	listHead->sourceTarget = malloc(sizeof(source));
 	listHead->sourceTarget = NULL;
@@ -29,6 +33,9 @@ int main(int argc, char* argv[])
 	loadSources(listHead);
 	
 	/** Step 4 **/
+	browseSources(listHead,firstWord);
+	
+	/** Step 5 **/
 	menu(listHead);
 
     return 0;

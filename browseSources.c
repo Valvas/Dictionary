@@ -2,12 +2,19 @@
 
 /**
 
+INFO -	This function reads the content of each source files and get its content before sending it to "getWord.c" that will create a structure 'word' for each line of the file
 
+1 - Check if there is at least one source
+2 - Loop that will execute for each source file (at end of the loop replace 'tmpSource' by the next source in the linked list)
+3 - Open source file in read-only mode
+4 - Loop that get each line of the source file and send it to "getWord.c" in order to create a structure 'word' for each line
+5 - Call "getWord.c" that will separate content of each line in word, definition and source and create a structure 'word' with these elements
 
 **/
 
-void browseSources(head* listHead)
+void browseSources(head* listHead, primary* firstWord)
 {
+	/** Step 1 **/
 	if(listHead->sourceTarget)
 	{
 		source* tmpSource = listHead->sourceTarget;
@@ -16,17 +23,21 @@ void browseSources(head* listHead)
 		
 		if(tmpSource)
 		{
+			/** Step 2 **/
 			while(tmpSource)
-			{			
+			{						
+				/** Step 3 **/
 				file = fopen(tmpSource->sourcePath,"r");
 				
 				if(file != NULL)
 				{
-					char wordContent[WORD_CONTENT];
+					char wordContent[DEFINITION];
 					
-					while(fgets(wordContent,WORD_CONTENT,file) != NULL)
+					/** Step 4 **/
+					while(fgets(wordContent,DEFINITION,file) != NULL)
 					{
-						//CALL FUNCTION TO GET WORD, DEFINITION AND SOURCE BY CREATING STRUCTURES 'WORD'
+						/** Step 5 **/
+						getWord(firstWord,wordContent);
 					}
 				}
 				
