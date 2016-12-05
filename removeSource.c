@@ -32,7 +32,7 @@ INFO -	This function removes a source from the linked list and if it succed call
 	
 5 - If the source to remove is the last of the linked list, break the link with the previous one
 
-	EXAMPLE : 1 -> 2 -> 3 || source to remove : 3 || 1 -> 2 -> NULL
+	EXAMPLE : 1 -> 2 -> 3 -> NULL || source to remove : 3 || 1 -> 2 -> NULL
 
 **/
 

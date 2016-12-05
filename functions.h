@@ -10,10 +10,15 @@
 
 #define LIST_FILE "sources/list.info"
 #define NAME_SIZE 50
+#define WORD_CONTENT 1000
 #define NAME_SIZE_NO_PATH 40
 #define SOURCE_FOLDER_PATH "sources/"
 
 #ifdef _WIN32
+#define CLEAR system("cls");
+#endif
+
+#ifdef __APPLE__ && __MACH__
 #define CLEAR system("cls");
 #endif
 
@@ -43,6 +48,7 @@ void cleanBuffer();
 void addSource(head*);
 void loadSources(head*);
 void deleteSource(head*);
+void browseSources(head*);
 void manageSources(head*);
 void showSources(source*,int*);
 void beginningFormat(char*,int*);
