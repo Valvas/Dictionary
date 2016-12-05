@@ -32,9 +32,13 @@ void deleteSource(source* firstSource)
 	/** Step 3 **/
 	if(checkSourceExistenceForRemoving(firstSource,name))
 	{
-		CLEAR
-		printf("\nSUCCESS : source removed from linked list !\n");
-		printf("\nPress enter to continue...");
-		getchar();
+		if(removeSourceInList(name))
+		{
+			CLEAR
+			printf("\nSUCCESS : source removed from linked list !\n");
+			printf("\nSUCCESS : source removed from \"%s\" !\n",LIST_FILE);
+			printf("\nPress enter to continue...");
+			getchar();
+		}
 	}
 }

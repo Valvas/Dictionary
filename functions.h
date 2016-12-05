@@ -29,6 +29,7 @@ int checkFile(char*);
 int getFileSize(FILE*);
 int addSourceInList(char*);
 int newSource(source*,char*);
+int removeSourceInList(char*);
 int removeSource(source*,source*);
 int checkNumberOfArguments(char*,int*);
 int checkSourceExistenceForAdding(source*,char*);
