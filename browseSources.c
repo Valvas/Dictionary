@@ -6,9 +6,7 @@ INFO -	This function reads the content of each source files and get its content 
 
 1 - Check if there is at least one source
 2 - Loop that will execute for each source file (at end of the loop replace 'tmpSource' by the next source in the linked list)
-3 - Open source file in read-only mode
-4 - Loop that get each line of the source file and send it to "getWord.c" in order to create a structure 'word' for each line
-5 - Call "getWord.c" that will separate content of each line in word, definition and source and create a structure 'word' with these elements
+3 - Call "readSource.c" that will browse the source file and get its content
 
 **/
 
@@ -27,26 +25,7 @@ void browseSources(head* listHead, primary* firstWord)
 			while(tmpSource)
 			{						
 				/** Step 3 **/
-				file = fopen(tmpSource->sourcePath,"r");
-				
-				if(file != NULL)
-				{
-					char wordContent[DEFINITION];
-					
-					/** Step 4 **/
-					while(fgets(wordContent,DEFINITION,file) != NULL)
-					{
-						/** Step 5 **/
-						getWord(firstWord,wordContent);
-					}
-				}
-				
-				else
-				{
-					printf("\nERROR : cannot read \"%s\" !\n",tmpSource->sourcePath);
-					printf("\nPress enter to continue...");
-					getchar();
-				}
+				readSource(firstWord,tmpSource->sourcePath);
 				
 				tmpSource = tmpSource->nextSource;
 			}

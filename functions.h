@@ -55,11 +55,13 @@ void deleteSource(head*);
 void manageSources(head*);
 void getWord(primary*,char*);
 void showSources(source*,int*);
+void readSource(primary*,char*);
 void beginningFormat(char*,int*);
 void removeBlankAtEnd(char*,int*);
 void browseSources(head*,primary*);
 void setContentToLowercase(char*,int*);
 void printContentSourceFile(char*,char*);
+void createWord(primary*,char*,char*,char*);
 void removeBlankAfterLineBreak(char*,int*,int);
 void removeBlankBeforeLineBreak(char*,int*,int);
 

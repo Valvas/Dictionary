@@ -79,5 +79,5 @@ void getWord(primary* firstWord, char* content)
 	}
 	
 	/** Step 8 **/
-	//CALL FUNCTION CREATE STRUCTURE WORD
+	createWord(firstWord,title,definition,origin);
 }
