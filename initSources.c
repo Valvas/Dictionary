@@ -17,7 +17,7 @@ INFO -	This functions is called at start of the program and is no longer used af
 2 - Allocate memory for 'sourcePath' of the new source
 3 - Set 'sourcePath' of the new source the second parameter received by the function
 4 - Set the next source of the new source equals to NULL because this new source will be added at the end of the linked list
-5 - If 'firstSource' is NULL, just return the new source that will be set 'firstSource' by function "loadSources.c", else execute the content of this if
+5 - If 'firstSource' is NULL, just return the new source that will be set first source by function "loadSources.c", else execute the content of this if
 6 - 'tmpSource' will be used for the next instructions and receives 'firstSource'
 7 - Loop that checks if there is a next source for 'tmpSource', at the end of the loop 'tmpSource' will be the last source of the linked list
 8 - Set the new source the next source of the last source of the linked list 
@@ -29,7 +29,7 @@ INFO -	This functions is called at start of the program and is no longer used af
 
 **/
 
-source* initSources(source* firstSource, char* sourcePath)
+source* initSources(head* listHead, char* sourcePath)
 {			
 	source* newSource = malloc(sizeof(source));
 		
@@ -53,10 +53,10 @@ source* initSources(source* firstSource, char* sourcePath)
 	newSource->nextSource = NULL;
 	
 	/** Step 5 **/
-	if(firstSource != NULL)
+	if(listHead->sourceTarget != NULL)
 	{
 		/** Step 6 **/
-		source* tmpSource = firstSource;
+		source* tmpSource = listHead->sourceTarget;
 		
 		/** Step 7 **/
 		while(tmpSource->nextSource != NULL)

@@ -1,6 +1,6 @@
 #include "functions.h"
 
-void manageSources(source* firstSource)
+void manageSources(head* listHead)
 {
     short run = 1, size = 3;
     long choice = 0;
@@ -27,13 +27,29 @@ void manageSources(source* firstSource)
 
             switch(choice)
             {
-                case ADD_SOURCE :  addSource(firstSource); choice = 0; break;
-                case REMOVE_SOURCE : deleteSource(firstSource); choice = 0; break;
+                case ADD_SOURCE :  addSource(listHead); choice = 0; break;
+                case REMOVE_SOURCE : 
+				
+					if(listHead->sourceTarget) deleteSource(listHead);
+					
+					else
+					{
+						CLEAR
+						
+						printf("\nERROR : There are no sources yet !\n");
+						printf("\nPress enter to continue...");
+						getchar();
+					}
+					
+					choice = 0; 
+					break;
+					
                 case SHOW_SOURCES :
 
                     CLEAR
                     printf("==========================================\n");
-                    showSources(firstSource,&count);
+					if(listHead->sourceTarget) showSources(listHead->sourceTarget,&count);
+					else printf("\nNo sources yet !\n\n");     
                     printf("==========================================\n");
                     printf("\nPress enter to continue...");
                     getchar();

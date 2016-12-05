@@ -7,4 +7,9 @@ struct source
     struct source* nextSource;
 };
 
+struct head
+{
+	struct source* sourceTarget;
+};
+
 #endif

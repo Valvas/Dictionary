@@ -10,7 +10,7 @@ INFO -	This function prints all sources of the linked list and asks user for a s
 
 **/
 
-void deleteSource(source* firstSource)
+void deleteSource(head* listHead)
 {
 	int count = 1;
 	char name[NAME_SIZE];
@@ -20,7 +20,7 @@ void deleteSource(source* firstSource)
 	
 	printf("============================================================\n");
 	
-	showSources(firstSource,&count);
+	if(listHead->sourceTarget) showSources(listHead->sourceTarget,&count);
 	
 	printf("============================================================\n");
 	
@@ -30,7 +30,7 @@ void deleteSource(source* firstSource)
 	entry(name,NAME_SIZE);
 	
 	/** Step 3 **/
-	if(checkSourceExistenceForRemoving(firstSource,name))
+	if(checkSourceExistenceForRemoving(listHead,name))
 	{
 		if(removeSourceInList(name))
 		{

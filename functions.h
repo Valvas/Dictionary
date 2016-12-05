@@ -21,6 +21,7 @@
 #define CLEAR system("clear");
 #endif
 
+typedef struct head head;
 typedef struct source source;
 
 int initProgram();
@@ -28,20 +29,21 @@ int entry(char*,int);
 int checkFile(char*);
 int getFileSize(FILE*);
 int addSourceInList(char*);
-int newSource(source*,char*);
+int newSource(head*,char*);
 int removeSourceInList(char*);
-int removeSource(source*,source*);
+int removeSource(head*,source*);
 int checkNumberOfArguments(char*,int*);
-int checkSourceExistenceForAdding(source*,char*);
-int checkSourceExistenceForRemoving(source*,char*);
+int checkSourceExistenceForAdding(head*,char*);
+int checkSourceExistenceForRemoving(head*,char*);
 
 long integer(int);
 
-void menu(source*);
+void menu(head*);
 void cleanBuffer();
-void addSource(source*);
-void deleteSource(source*);
-void manageSources(source*);
+void addSource(head*);
+void loadSources(head*);
+void deleteSource(head*);
+void manageSources(head*);
 void showSources(source*,int*);
 void beginningFormat(char*,int*);
 void removeBlankAtEnd(char*,int*);
@@ -50,7 +52,6 @@ void printContentSourceFile(char*,char*);
 void removeBlankAfterLineBreak(char*,int*,int);
 void removeBlankBeforeLineBreak(char*,int*,int);
 
-source* loadSources();
-source* initSources(source*,char*);
+source* initSources(head*,char*);
 
 #endif

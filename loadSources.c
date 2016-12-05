@@ -9,17 +9,16 @@ INFO -	This function get paths of all source files in LIST_FILE (see constant in
 2 - Open LIST_FILE (constant defined in functions.h) and try to read its content
 3 - Get each line in LIST_FILE and create a structure source for each one
 4 - Check if file is found at 'sourcePath', can be read and is on good format
-5 - At first call of the function "initSources.c" 'firstSource' worth NULL and received the first new source
+5 - At first call of the function "initSources.c" 'listHead' worth NULL and received the first new source
 
 **/
 
-source* loadSources()
+void loadSources(head* listHead)
 {
 	char sourcePath[NAME_SIZE];
 	char* c;
 	
 	/** Step 1 **/
-	source* firstSource = NULL;
 	source* src = NULL;
 	
 	FILE* file = NULL;
@@ -37,10 +36,10 @@ source* loadSources()
 			/** Step 4 **/
 			if(checkFile(sourcePath))
 			{
-				src = initSources(firstSource,sourcePath);
+				src = initSources(listHead,sourcePath);
 				
 				/** Step 5 **/
-				if(firstSource == NULL) firstSource = src;
+				if(listHead->sourceTarget == NULL) listHead->sourceTarget = src;
 			}
         }
 		/** End of Step 3 **/
@@ -55,6 +54,4 @@ source* loadSources()
 		getchar();
 		exit(0);
 	}
-	
-	return firstSource;
 }

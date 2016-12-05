@@ -34,7 +34,7 @@ INFO -	This function create a new structure source and adds it at the end of the
 		
 **/
 
-int newSource(source* firstSource, char* path)
+int newSource(head* listHead, char* path)
 {
 	source* newSource = malloc(sizeof(source));
 	
@@ -67,15 +67,15 @@ int newSource(source* firstSource, char* path)
 	newSource->nextSource = NULL;
 	
 	/** Step 5 **/
-	if(firstSource == NULL)
+	if(listHead->sourceTarget == NULL)
 	{
-		firstSource = newSource;
+		listHead->sourceTarget = newSource;
 	}
 	
 	/** Step 6 **/
 	else
 	{
-		source* tmpSource = firstSource;
+		source* tmpSource = listHead->sourceTarget;
 	
 		/** Step 6.1 **/
 		if(tmpSource == NULL)

@@ -12,9 +12,9 @@ INFO -	This function checks if the name of source entered by user exists, it ret
 
 **/
 
-int checkSourceExistenceForRemoving(source* firstSource, char* name)
+int checkSourceExistenceForRemoving(head* listHead, char* name)
 {
-	source* tmpSource = firstSource;
+	source* tmpSource = listHead->sourceTarget;
 	
 	/** Step 1 **/
 	if(tmpSource)
@@ -26,7 +26,7 @@ int checkSourceExistenceForRemoving(source* firstSource, char* name)
 			if(strcmp(tmpSource->sourcePath,name) == 0)
 			{
 				/** Step 4 **/
-				if(removeSource(firstSource,tmpSource))
+				if(removeSource(listHead,tmpSource))
 				{
 					return 1;
 				}

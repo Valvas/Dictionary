@@ -18,7 +18,7 @@ EXEMPLE - folderPath -> "sources/" + fileName -> "test.txt" = folderPath -> "sou
 
 **/
 
-void addSource(source* firstSource)
+void addSource(head* listHead)
 {
 	char fileName[NAME_SIZE_NO_PATH];
 	char folderPath[NAME_SIZE];
@@ -38,7 +38,7 @@ void addSource(source* firstSource)
 	strcat(folderPath,fileName);
 	
 	/** Step 4 **/
-	if(checkSourceExistenceForAdding(firstSource,folderPath))
+	if(checkSourceExistenceForAdding(listHead,folderPath))
 	{
 		/** Step 5 **/
 		if(checkFile(folderPath))
@@ -47,7 +47,7 @@ void addSource(source* firstSource)
 			if(addSourceInList(folderPath))
 			{
 				/** Step 7 **/
-				if(newSource(firstSource,folderPath))
+				if(newSource(listHead,folderPath))
 				{
 					CLEAR
 					printf("\nSUCCESS : source created !\n");

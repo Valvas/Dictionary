@@ -21,11 +21,15 @@ int main(int argc, char* argv[])
         exit(0);
     }
 	
+	head* listHead = malloc(sizeof(head));
+	listHead->sourceTarget = malloc(sizeof(source));
+	listHead->sourceTarget = NULL;
+	
 	/** Step 3 **/
-	source* firstSource = loadSources();
+	loadSources(listHead);
 	
 	/** Step 4 **/
-	menu(firstSource);
+	menu(listHead);
 
     return 0;
 }

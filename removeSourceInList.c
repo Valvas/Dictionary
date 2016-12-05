@@ -82,6 +82,8 @@ int removeSourceInList(char* path)
 	
 	if(file != NULL)
 	{
+		if(content[strlen(content) - 1] == '\n') content[strlen(content) - 1] = '\0';
+		if(content[strlen(content)] == '\n') content[strlen(content)] = '\0';
 		fprintf(file,"%s",content);
 		
 		fclose(file);

@@ -36,16 +36,21 @@ INFO -	This function removes a source from the linked list and if it succed call
 
 **/
 
-int removeSource(source* firstSource, source* removedSource)
+int removeSource(head* listHead, source* removedSource)
 {	
 	/** Step 1 **/
-	if(firstSource == removedSource)
-	{
+	if(listHead->sourceTarget == removedSource)
+	{		
 		/** Step 1.1 **/
-		if(firstSource->nextSource)
+		if(listHead->sourceTarget->nextSource)
 		{
 			/** Step 1.2 **/
-			firstSource = firstSource->nextSource;
+			listHead->sourceTarget = listHead->sourceTarget->nextSource;
+		}
+		
+		else
+		{
+			listHead->sourceTarget = NULL;
 		}
 		
 		return 1;
@@ -53,7 +58,7 @@ int removeSource(source* firstSource, source* removedSource)
 	
 	else
 	{
-		source* tmpSource = firstSource;
+		source* tmpSource = listHead->sourceTarget;
 	
 		/** Step 2 **/
 		if(tmpSource)
