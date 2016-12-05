@@ -1,0 +1,1 @@
+gcc addSource.c addSourceInList.c checkFile.c checkSourceExistenceForAdding.c checkSourceExistenceForRemoving.c cleanBuffer.c deleteSource.c entry.c formatSource.c getFileSize.c initProgram.c initSources.c integer.c loadSources.c main.c manageSources.c menu.c newSource.c removeSource.c removeSourceInList.c showSources.c browseSources.c -o Dictionnary
