@@ -60,7 +60,7 @@ void menu(head* listHead, primary* firstWord)
 					choice = 0; 
 					break;
 				
-                case SEARCH_WORD : printf("\nSearch word"); choice = 0; break;
+                case SEARCH_WORD : searchWord(firstWord->wordTarget); choice = 0; break;
 				
                 case ADD_WORD : 
 				

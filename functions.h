@@ -55,6 +55,7 @@ long integer(int);
 
 void cleanBuffer();
 void printWord(word*);
+void searchWord(word*);
 void loadSources(head*);
 void deleteSource(head*);
 void menu(head*,primary*);
