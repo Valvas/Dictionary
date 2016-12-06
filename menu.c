@@ -9,7 +9,7 @@ INFO -  Variable 'size' corresponds to the number of characters the function 'in
 
 **/
 
-void menu(head* listHead)
+void menu(head* listHead, primary* firstWord)
 {
     short run = 1, size = 3;
     long choice = 0;
@@ -37,7 +37,28 @@ void menu(head* listHead)
 
             switch(choice)
             {
-                case WORD_LIST : printf("\nList of words"); choice = 0; break;
+                case WORD_LIST : 
+				
+					CLEAR
+					
+					if(firstWord->wordTarget)
+					{
+						printf("\nERROR : there are no words yet !\n");
+						printf("\nPress enter to continue...");
+						getchar();
+					}
+					
+					else
+					{
+						printWord(firstWord->wordTarget);
+						printf("\n======================================================================\n");
+						printf("\nPress enter to go back to menu...");
+						getchar();
+					}
+
+					choice = 0; 
+					break;
+				
                 case SEARCH_WORD : printf("\nSearch word"); choice = 0; break;
                 case ADD_WORD : printf("\nAdd new word"); choice = 0; break;
                 case MANAGE_SOURCES : manageSources(listHead); choice = 0; break;

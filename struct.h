@@ -12,7 +12,7 @@ struct word
 	char* title;
 	char* definition;
 	char* origin;
-	word* nextWord;
+	struct word* nextWord;
 };
 
 struct head

@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 	browseSources(listHead,firstWord);
 	
 	/** Step 5 **/
-	menu(listHead);
+	menu(listHead,firstWord);
 
     return 0;
 }

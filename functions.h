@@ -47,11 +47,12 @@ int checkSourceExistenceForRemoving(head*,char*);
 
 long integer(int);
 
-void menu(head*);
 void cleanBuffer();
+void printWord(word*);
 void addSource(head*);
 void loadSources(head*);
 void deleteSource(head*);
+void menu(head*,primary*);
 void manageSources(head*);
 void getWord(primary*,char*);
 void showSources(source*,int*);
