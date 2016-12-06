@@ -85,6 +85,8 @@ int removeSource(head* listHead, source* removedSource)
 			{
 				tmpSource->nextSource = NULL;
 			}
+			
+			free(removedSource);
 		
 			return 1;
 		}

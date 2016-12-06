@@ -5,7 +5,11 @@
 1 - Calling function 'initProgram' to check if sources list file can be opened
 2 - Exiting program with error message for user
 3 - Loading all sources in LIST_FILE (constant defined in "functions.h")
-4 - Call main menu
+4 - Loading all words in sources
+5 - Call main menu
+6 - Free source linked list
+7 - Free word linked list
+8 - Free pointer for each linked list
 
 **/
 
@@ -37,6 +41,18 @@ int main(int argc, char* argv[])
 	
 	/** Step 5 **/
 	menu(listHead,firstWord);
+	
+	/** Step 6 **/
+	freeSources(listHead->sourceTarget);
+	
+	/** Step 7 **/
+	freeWords(firstWord->wordTarget);
+	
+	/** Step 8 **/
+	free(listHead->sourceTarget);
+	free(firstWord->wordTarget);
+	free(listHead);
+	free(firstWord);
 
     return 0;
 }
