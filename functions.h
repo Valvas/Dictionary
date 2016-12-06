@@ -8,6 +8,7 @@
 #ifndef prototype
 #define prototype
 
+#define LIMIT 3
 #define TITLE 100
 #define ORIGIN 100
 #define NAME_SIZE 50

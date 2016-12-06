@@ -18,7 +18,7 @@ void searchWord(word* wrd)
 {
 	char value[NAME_SIZE];
 	
-	int count = 0;
+	int count = 0, lenghDiff = 0, check = 0;
 	
 	CLEAR
 	
@@ -32,6 +32,15 @@ void searchWord(word* wrd)
 	/** Step 2 **/
 	while(wrd)
 	{
+		if(strlen(wrd->title) > strlen(value))
+		{
+			lenghDiff = strlen(wrd->title) - strlen(value);
+		}
+		
+		check = lenghDiff;
+		
+		
+		
 		/** Step 3 **/
 		if(strcmp(wrd->title,value) == 0)
 		{
