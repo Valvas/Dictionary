@@ -13,6 +13,7 @@ void menu(head* listHead, primary* firstWord)
 {
     short run = 1, size = 3;
     long choice = 0;
+	char sourcePath[NAME_SIZE];
 
     while(run)
     {
@@ -60,7 +61,18 @@ void menu(head* listHead, primary* firstWord)
 					break;
 				
                 case SEARCH_WORD : printf("\nSearch word"); choice = 0; break;
-                case ADD_WORD : printf("\nAdd new word"); choice = 0; break;
+				
+                case ADD_WORD : 
+				
+					/** Get the name of the source in which the user wants to add words **/
+					selectSource(listHead,sourcePath);
+					
+					/** Call "addWord.c" with the result of "selectSource.c" just above **/
+					addWord(firstWord,sourcePath);
+					
+					choice = 0;
+					break;
+				
                 case MANAGE_SOURCES : manageSources(listHead,firstWord); choice = 0; break;
                 case EXIT : run = 0; break;
             }

@@ -55,13 +55,14 @@ long integer(int);
 
 void cleanBuffer();
 void printWord(word*);
-void addSource(head*);
 void loadSources(head*);
 void deleteSource(head*);
 void menu(head*,primary*);
 void getWord(primary*,char*);
 void addWord(primary*,char*);
 void showSources(source*,int*);
+void selectSource(head*,char*);
+void addSource(head*,primary*);
 void readSource(primary*,char*);
 void beginningFormat(char*,int*); 					/** "formatSources.c" **/
 void removeBlankAtEnd(char*,int*);					/** "formatSources.c" **/

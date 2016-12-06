@@ -28,14 +28,8 @@ void manageSources(head* listHead, primary* firstWord)
 
             switch(choice)
             {
-                case ADD_SOURCE :  addSource(listHead); choice = 0; break;
-				
-				case CREATE_SOURCE :
-				
-					createSource(listHead,firstWord);
-					
-					choice = 0;
-					break;
+                case ADD_SOURCE :  addSource(listHead,firstWord); choice = 0; break;
+				case CREATE_SOURCE : createSource(listHead,firstWord); choice = 0; break;
 					
                 case REMOVE_SOURCE : 
 				

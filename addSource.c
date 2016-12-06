@@ -15,10 +15,13 @@ EXEMPLE - folderPath -> "sources/" + fileName -> "test.txt" = folderPath -> "sou
 5 - Check if file exists and can be read (return 1 if yes and 0 if no)
 6 - Add the new source file in LIST_FILE (constant defined in "functions.h") by calling 'addSourceInList.c' (return 1 if data is added)
 7 - If 'addSourceInList' returned 1, create a new element 'source' to add in the linked list
+8 - Open source file in order to get all its content and create a structure 'word' for each line
+9 - Get each line of the source file while some remain
+10 - Call "getWord.c" that will create a structure 'word' for each line of the source file and add them in the word linked list
 
 **/
 
-void addSource(head* listHead)
+void addSource(head* listHead, primary* firstWord)
 {
 	char fileName[NAME_SIZE_NO_PATH];
 	char folderPath[NAME_SIZE];
@@ -49,10 +52,39 @@ void addSource(head* listHead)
 				/** Step 7 **/
 				if(newSource(listHead,folderPath))
 				{
-					CLEAR
-					printf("\nSUCCESS : source created !\n");
-					printf("\nPress enter to continue...");
-					getchar();
+					FILE* file = NULL;
+					
+					/** Step 8 **/
+					file = fopen(folderPath,"r");
+					
+					if(file != NULL)
+					{
+						char content[DEFINITION];
+						
+						/** Step 9 **/
+						while(fgets(content,DEFINITION,file) != NULL)
+						{
+							/** Step 10 **/
+							getWord(firstWord,content);
+						}
+						
+						fclose(file);
+						
+						CLEAR
+						printf("\nSUCCESS : source created !\n");
+						printf("\nSUCCESS : content from source file correctly added in program !\n");
+						printf("\nPress enter to continue...");
+						getchar();
+					}
+					
+					else
+					{
+						CLEAR
+						printf("\nSUCCESS : source created !\n");
+						printf("\nERROR : cannot read content of the new source file !\n");
+						printf("\nPress enter to continue...");
+						getchar();
+					}
 				}
 			}
 		}

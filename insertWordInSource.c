@@ -6,26 +6,38 @@ INFO -	Insert the new word with its definition and source in the corresponding s
 
 1 - Open the source file and prepare to write content at the end
 2 - Check if there is already some content in the source file, if there is content, the function must insert a line break before writing the new word in the file
-3 - If file is empty the function can write without inserting a line break before new word
+3 - Insert the content with a line break if there is already content in the source file
+4 - If file is empty the function can write without inserting a line break before new word
 
 **/
 
 void insertWordInSource(char* sourcePath, char* word)
 {
+	int size = 0;
+	
 	FILE* file = NULL;
 	
 	/** Step 1 **/
+	file = fopen(sourcePath,"r");
+	
+	if(file != NULL)
+	{
+		size = getFileSize(file);
+		
+		fclose(file);
+	}
+	
 	file = fopen(sourcePath,"a");
 	
 	if(file != NULL)
 	{
-		/** Step 2 **/
-		if(getFileSize(file) > 0)
+		/** Step 3 **/
+		if(size > 0)
 		{
 			fprintf(file,"\n%s",word);
 		}
 		
-		/** Step 3 **/
+		/** Step 4 **/
 		else
 		{
 			fprintf(file,"%s",word);

@@ -33,6 +33,8 @@ void addWord(primary* firstWord, char* sourcePath)
 				
 				if(file != NULL)
 				{
+					fclose(file);
+					
 					char title[TITLE];
 					char definition[DEFINITION];
 					char origin[ORIGIN];
@@ -60,8 +62,6 @@ void addWord(primary* firstWord, char* sourcePath)
 							}
 						}
 					}
-					
-					fclose(file);
 				}
 				
 				else
