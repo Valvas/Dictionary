@@ -33,6 +33,9 @@ typedef struct word word;
 typedef struct source source;
 typedef struct primary primary;
 
+
+/** Prototypes without descriptions are in a 'c' file with the same name as the function **/
+
 int initProgram();
 int entry(char*,int);
 int checkFile(char*);
@@ -41,30 +44,32 @@ int addSourceInList(char*);
 int newSource(head*,char*);
 int removeSourceInList(char*);
 int removeSource(head*,source*);
-int checkNumberOfArguments(char*,int*);
+int checkNumberOfArguments(char*,int*);				/** "formatSources.c" **/
 int checkSourceExistenceForAdding(head*,char*);
 int checkSourceExistenceForRemoving(head*,char*);
 
 long integer(int);
 
 void cleanBuffer();
+void addWord(char*);
 void printWord(word*);
 void addSource(head*);
 void loadSources(head*);
 void deleteSource(head*);
 void menu(head*,primary*);
-void manageSources(head*);
 void getWord(primary*,char*);
 void showSources(source*,int*);
 void readSource(primary*,char*);
-void beginningFormat(char*,int*);
-void removeBlankAtEnd(char*,int*);
+void beginningFormat(char*,int*); 					/** "formatSources.c" **/
+void removeBlankAtEnd(char*,int*);					/** "formatSources.c" **/
+void createSource(head*,primary*);
 void browseSources(head*,primary*);
-void setContentToLowercase(char*,int*);
-void printContentSourceFile(char*,char*);
+void manageSources(head*,primary*);
+void setContentToLowercase(char*,int*);				/** "formatSources.c" **/
+void printContentSourceFile(char*,char*);			/** "formatSources.c" **/
 void createWord(primary*,char*,char*,char*);
-void removeBlankAfterLineBreak(char*,int*,int);
-void removeBlankBeforeLineBreak(char*,int*,int);
+void removeBlankAfterLineBreak(char*,int*,int); 	/** "formatSources.c" **/
+void removeBlankBeforeLineBreak(char*,int*,int); 	/** "formatSources.c" **/
 
 source* initSources(head*,char*);
 

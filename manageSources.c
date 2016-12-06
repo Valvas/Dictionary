@@ -1,6 +1,6 @@
 #include "functions.h"
 
-void manageSources(head* listHead)
+void manageSources(head* listHead, primary* firstWord)
 {
     short run = 1, size = 3;
     long choice = 0;
@@ -8,7 +8,7 @@ void manageSources(head* listHead)
 
     while(run)
     {
-        while(choice < 1 || choice > 4)
+        while(choice < 1 || choice > 5)
         {
             CLEAR
 
@@ -18,16 +18,25 @@ void manageSources(head* listHead)
             printf("+==================================+\n");
 
             printf("\n1. Add new source");
-            printf("\n2. Remove source");
-            printf("\n3. Show sources");
-            printf("\n4. Back");
-            printf("\n\nEnter a value (1 to 4) : ");
+			printf("\n2. Create source");
+            printf("\n3. Remove source");
+            printf("\n4. Show sources");
+            printf("\n5. Back");
+            printf("\n\nEnter a value (1 to 5) : ");
 
             choice = integer(size);
 
             switch(choice)
             {
                 case ADD_SOURCE :  addSource(listHead); choice = 0; break;
+				
+				case CREATE_SOURCE :
+				
+					createSource(listHead,firstWord);
+					
+					choice = 0;
+					break;
+					
                 case REMOVE_SOURCE : 
 				
 					if(listHead->sourceTarget) deleteSource(listHead);
