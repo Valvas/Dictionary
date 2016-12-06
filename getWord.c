@@ -71,11 +71,11 @@ void getWord(primary* firstWord, char* content)
 		{
 			origin[l - 1] = '\0';
 		}
-	}
-	
-	else
-	{
-		origin[l] = '\0';
+		
+		else
+		{
+			origin[l] = '\0';
+		}	
 	}
 	
 	/** Step 8 **/

@@ -11,6 +11,8 @@ INFO -	This function gets the content of the source file given in parameter of t
 
 void readSource(primary* firstWord, char* name)
 {
+	FILE* file = NULL;
+	
 	/** Step 1 **/
 	file = fopen(name,"r");
 				

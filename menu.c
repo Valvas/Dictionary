@@ -43,16 +43,16 @@ void menu(head* listHead, primary* firstWord)
 					
 					if(firstWord->wordTarget)
 					{
-						printf("\nERROR : there are no words yet !\n");
-						printf("\nPress enter to continue...");
+						printWord(firstWord->wordTarget);
+						printf("\n======================================================================\n");
+						printf("\nPress enter to go back to menu...");
 						getchar();
 					}
 					
 					else
 					{
-						printWord(firstWord->wordTarget);
-						printf("\n======================================================================\n");
-						printf("\nPress enter to go back to menu...");
+						printf("\nERROR : there are no words yet !\n");
+						printf("\nPress enter to continue...");
 						getchar();
 					}
 

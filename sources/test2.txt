@@ -1,2 +1,2 @@
-word1;Definition1;source1
-word2;Definition2;source2
+programme;Liste des instructions permettant a un ordinateur d'executer une serie d'operations;http://www.le-dictionnaire.com/definition.php?mot=programme
+test;Epreuve qui permet d'evaluer quelqu'un ou de determiner les caracteristiques de quelque chose;http://www.le-dictionnaire.com/definition.php?mot=test
