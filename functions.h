@@ -37,9 +37,12 @@ typedef struct primary primary;
 /** Prototypes without descriptions are in a 'c' file with the same name as the function **/
 
 int initProgram();
+int getTitle(char*);								/** "addWord.c" **/
 int entry(char*,int);
 int checkFile(char*);
+int getOrigin(char*);								/** "addWord.c" **/
 int getFileSize(FILE*);
+int getDefinition(char*);							/** "addWord.c" **/
 int addSourceInList(char*);
 int newSource(head*,char*);
 int removeSourceInList(char*);
@@ -51,13 +54,13 @@ int checkSourceExistenceForRemoving(head*,char*);
 long integer(int);
 
 void cleanBuffer();
-void addWord(char*);
 void printWord(word*);
 void addSource(head*);
 void loadSources(head*);
 void deleteSource(head*);
 void menu(head*,primary*);
 void getWord(primary*,char*);
+void addWord(primary*,char*);
 void showSources(source*,int*);
 void readSource(primary*,char*);
 void beginningFormat(char*,int*); 					/** "formatSources.c" **/
@@ -65,6 +68,7 @@ void removeBlankAtEnd(char*,int*);					/** "formatSources.c" **/
 void createSource(head*,primary*);
 void browseSources(head*,primary*);
 void manageSources(head*,primary*);
+void insertWordInSource(char*,char*);
 void setContentToLowercase(char*,int*);				/** "formatSources.c" **/
 void printContentSourceFile(char*,char*);			/** "formatSources.c" **/
 void createWord(primary*,char*,char*,char*);

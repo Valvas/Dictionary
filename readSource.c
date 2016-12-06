@@ -25,6 +25,8 @@ void readSource(primary* firstWord, char* name)
 		{
 			getWord(firstWord,wordContent);
 		}
+		
+		fclose(file);
 	}
 				
 	else

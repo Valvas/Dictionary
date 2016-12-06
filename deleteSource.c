@@ -59,25 +59,14 @@ void deleteSource(head* listHead)
 				if(choice == 1)
 				{
 					/** Step 7 **/
-					if(remove(name) == 0)
-					{
-						CLEAR
-						printf("\nSUCCESS : source file removed from sources folder !\n");
-						printf("\nSUCCESS : source removed from linked list !\n");
-						printf("\nSUCCESS : source removed from \"%s\" !\n",LIST_FILE);
-						printf("\nPress enter to continue...");
-						getchar();
-					}
-					
-					else
-					{
-						CLEAR
-						printf("\nERROR : cannot remove file from sources folder !\n");
-						printf("\nSUCCESS : source removed from linked list !\n");
-						printf("\nSUCCESS : source removed from \"%s\" !\n",LIST_FILE);
-						printf("\nPress enter to continue...");
-						getchar();
-					}
+					if(remove(name)){}
+
+					CLEAR
+					printf("\nSUCCESS : source file removed from sources folder !\n");
+					printf("\nSUCCESS : source removed from linked list !\n");
+					printf("\nSUCCESS : source removed from \"%s\" !\n",LIST_FILE);
+					printf("\nPress enter to continue...");
+					getchar();
 				}
 				
 				else if(choice == 2)

@@ -4,8 +4,6 @@
 
 INFO -	Create a source file in the folder 'sources' from the program root folder and create a structure 'source' for it
 
-WARNING -	If the value entered in this function is already an existing source file all its content will be erase as if it has just been created
-
 1 - Get the name of the new source file to create
 2 - Check if the value entered is not null
 3 - Get the value of the path to the sources folder in 'path'
@@ -14,11 +12,12 @@ WARNING -	If the value entered in this function is already an existing source fi
 
 	EXAMPLE : 'path' = 'sources/', 'name' = 'test.txt', concat = 'sources/test.txt'
 	
-6 - Create the new source file by using the path of the concat just above
-7 - Create a new structure 'source' in the program for this new source
-8 - Add this new source in LIST_FILE (constant defined in "functions.h")
-9 - Loop that print a menu to ask user if he wants to add words in the new source file
-10 - If user wants to add words in the source file the function calls "addWord.c", else he will be send back to the sources management menu
+6 - Check if file does not already exists
+7 - Create the new source file by using the path of the concat just above
+8 - Create a new structure 'source' in the program for this new source
+9 - Add this new source in LIST_FILE (constant defined in "functions.h")
+10 - Loop that print a menu to ask user if he wants to add words in the new source file
+11 - If user wants to add words in the source file the function calls "addWord.c", else he will be send back to the sources management menu
 
 **/
 
@@ -50,26 +49,37 @@ void createSource(head* listHead, primary* firstWord)
 		FILE* file = NULL;
 		
 		/** Step 6 **/
+		file = fopen(path,"r");
+		
+		if(file != NULL)
+		{
+			CLEAR
+			printf("\nERROR : this file already exists !\n");
+			printf("\nPress enter to continue...");
+			getchar();
+			fclose(file);
+			return;
+		}
+		
+		/** Step 7 **/
 		file = fopen(path,"w+");
 		
 		if(file != NULL)
 		{
-			/** Step 7 **/
+			/** Step 8 **/
 			if(newSource(listHead,path))
 			{
-				/** Step 8 **/
+				/** Step 9 **/
 				if(addSourceInList(path))
 				{
 					printf("\nSUCCESS : file \"%s\" created !\n",path);
 					printf("\nPress enter to continue...");
 					getchar();
 			
-					fclose(file);
-			
 					int size = 3;
 					long choice = 0;
 			
-					/** Step 9 **/
+					/** Step 10 **/
 					while(choice < 1 || choice > 2)
 					{
 						CLEAR
@@ -82,10 +92,10 @@ void createSource(head* listHead, primary* firstWord)
 				
 						choice = integer(size);
 				
-						/** Step 10 **/
+						/** Step 11 **/
 						if(choice == 1)
 						{
-							addWord(path);
+							addWord(firstWord,path);
 						}
 					}
 				}
@@ -104,6 +114,8 @@ void createSource(head* listHead, primary* firstWord)
 				printf("\nPress enter to exit...");
 				exit(0);
 			}
+			
+			fclose(file);
 		}
 		
 		else
