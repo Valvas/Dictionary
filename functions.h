@@ -16,6 +16,7 @@
 #define NAME_SIZE_NO_PATH 40
 #define LIST_FILE "sources/list.info"
 #define SOURCE_FOLDER_PATH "sources/"
+#define DOCUMENT_FOLDER_PATH "doc/"
 
 #ifdef _WIN32
 #define CLEAR system("cls");
@@ -62,6 +63,7 @@ void loadSources(head*);
 void deleteSource(head*);
 void freeSources(source*);
 void menu(head*,primary*);
+void readDocument(primary*);
 void getWord(primary*,char*);
 void addWord(primary*,char*);
 void showSources(source*,int*);

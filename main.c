@@ -39,6 +39,8 @@ int main(int argc, char* argv[])
 	/** Step 4 **/
 	browseSources(listHead,firstWord);
 	
+	readDocument(firstWord);
+	
 	/** Step 5 **/
 	menu(listHead,firstWord);
 	
