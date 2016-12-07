@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
 	/** Step 4 **/
 	browseSources(listHead,firstWord);
 	
-	//readDocument(firstWord); TEST FOR READ DOCUMENT AND CHECK WORD
+	correctDocument(firstWord); //TEST FOR READ DOCUMENT AND CHECK WORD
 	
 	/** Step 5 **/
 	menu(listHead,firstWord);

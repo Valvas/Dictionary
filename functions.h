@@ -64,14 +64,15 @@ void loadSources(head*);
 void deleteSource(head*);
 void freeSources(source*);
 void menu(head*,primary*);
-void readDocument(primary*);
 void getWord(primary*,char*);
 void addWord(primary*,char*);
+void correctDocument(primary*);
 void showSources(source*,int*);
 void selectSource(head*,char*);
 void addSource(head*,primary*);
 void readSource(primary*,char*);
 void beginningFormat(char*,int*); 					/** "formatSources.c" **/
+void readDocument(primary*,char*);
 void removeBlankAtEnd(char*,int*);					/** "formatSources.c" **/
 void createSource(head*,primary*);
 void browseSources(head*,primary*);
