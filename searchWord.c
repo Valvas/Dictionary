@@ -16,11 +16,12 @@ INFO -	Browse all words in the linked list and print word corresponding to user'
 	4.1 - Increment 'wordDiff' with lengh difference between the word and the research
 	4.2 - Browse the word and the research and increment 'wordDiff' each time characters are differents
 	
-5 - Check if differences between user's research and words is not over LIMIT (constant defined in "functions.h")
-6 - Print word if it corresponds to user's research
-7 - Increment 'count' each time a word is found by the research in order to know is there is a result or not
-8 - Select the next word in the linked list in order to execute the loop again
-9 - If 'count' worth 0 it means that there is no result for the research
+5 - If the two words have the same lengh we just check character differences between them
+6 - Check if differences between user's research and words is not over LIMIT (constant defined in "functions.h")
+7 - Print word if it corresponds to user's research
+8 - Increment 'count' each time a word is found by the research in order to know is there is a result or not
+9 - Select the next word in the linked list in order to execute the loop again
+10 - If 'count' worth 0 it means that there is no result for the research
 
 **/
 
@@ -74,26 +75,38 @@ void searchWord(word* wrd)
 					wordDiff++;
 				}
 			}
-		}		
-		
+		}
+
 		/** Step 5 **/
+		else
+		{
+			for(j = 0; j < strlen(wrd->title); j++)
+			{
+				if(value[j] != wrd->title[j])
+				{
+					wordDiff++;
+				}
+			}
+		}
+		
+		/** Step 6 **/
 		if(wordDiff <= LIMIT)
 		{
-			/** Step 6 **/
+			/** Step 7 **/
 			printf("\n%s :\n",wrd->title);
 			printf("\n%s\n",wrd->definition);
 			printf("\n%s\n",wrd->origin);
 			printf("\n======================================================================\n");
 			
-			/** Step 7 **/
+			/** Step 8 **/
 			count++;
 		}
 		
-		/** Step 8 **/
+		/** Step 9 **/
 		wrd = wrd->nextWord;
 	}
 	
-	/** Step 9 **/
+	/** Step 10 **/
 	if(count == 0)
 	{
 		printf("There is no result for \"%s\" !\n",value);

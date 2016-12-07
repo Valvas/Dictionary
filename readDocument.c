@@ -52,7 +52,7 @@ void readDocument(primary* firstWord)
 		char correctedWord[NAME_SIZE];
 		int i = 0, line = 0, position = 1;
 		
-		while((c = fgetc(file) != EOF)
+		while((c = fgetc(file)) != EOF)
 		{
 			if(c == '\n' || c == 32)
 			{

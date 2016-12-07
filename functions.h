@@ -49,6 +49,7 @@ int addSourceInList(char*);
 int newSource(head*,char*);
 int removeSourceInList(char*);
 int removeSource(head*,source*);
+int checkWord(primary*,char*,char*);
 int checkNumberOfArguments(char*,int*);				/** "formatSources.c" **/
 int checkSourceExistenceForAdding(head*,char*);
 int checkSourceExistenceForRemoving(head*,char*);
