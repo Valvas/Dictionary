@@ -17,7 +17,7 @@ void menu(head* listHead, primary* firstWord)
 
     while(run)
     {
-        while(choice < 1 || choice > 5)
+        while(choice < 1 || choice > 6)
         {
             CLEAR
 
@@ -30,9 +30,10 @@ void menu(head* listHead, primary* firstWord)
             printf("\n2. Search word");
             printf("\n3. Add new word");
             printf("\n4. Manage sources");
-            printf("\n5. Exit");
+			printf("\n5. Correct document");
+            printf("\n6. Exit");
 
-            printf("\n\nEnter a value (1 to 5) : ");
+            printf("\n\nEnter a value (1 to 6) : ");
 
             choice = integer(size);
 
@@ -74,6 +75,7 @@ void menu(head* listHead, primary* firstWord)
 					break;
 				
                 case MANAGE_SOURCES : manageSources(listHead,firstWord); choice = 0; break;
+				case CORRECT_DOCUMENT : correctDocument(firstWord); choice = 0; break;
                 case EXIT : run = 0; break;
             }
         }

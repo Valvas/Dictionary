@@ -1,0 +1,1 @@
+Put files in this folder and correct their content by using "Correct document" in the program's menu

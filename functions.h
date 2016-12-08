@@ -72,6 +72,7 @@ void selectSource(head*,char*);
 void addSource(head*,primary*);
 void readSource(primary*,char*);
 void beginningFormat(char*,int*); 					/** "formatSources.c" **/
+void replaceContent(char*,char*);
 void readDocument(primary*,char*);
 void removeBlankAtEnd(char*,int*);					/** "formatSources.c" **/
 void createSource(head*,primary*);

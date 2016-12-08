@@ -9,32 +9,46 @@ INFO -	Read the document, get each word and call "checkWord.c" to verify if the 
 	1.1 - Print each character of the file while we do not reach the end of the file
 	1.2 - Put the cursor at the beginning of the file for next steps
 	
-2 -
-3 -
-4 -
-5 -
-6 -
+2 - Print each character of the document by browsing it while function does not reach its end
+3 - Put the cursor at the beginning of the document for next steps
+4 - Create an array that will received the content of the document while it will be corrected (add 100 cells to be sure that it will not be too short because characters can be added compared to original content)
 
-	6.1 -
-	6.2 -
-	6.3 -
-	6.4 -
+	EXAMPLE : 'progra' corrected to 'program' will add one character to the corrected content
 	
-		6.4.1 -
-		6.4.2 -
-		6.4.3 -
+5 - Browse the document by getting the read character in variable 'c' while the function does not reach the end
+6 - Execute only if the character read is a line break or a space
+
+	6.1 - If it is a line break increment 'line' to indicate that the cursor is now on the next line of the document
+	6.2 - It it is a space increment 'position' to indicate that the cursor is now on the next word in the current line
+	6.3 - End the array 'word' that must contain all characters of the word between the last space and this one
+		  Then the function set 'i' to zero because the next word that will be read by the function will be written in 'word' by replacing the current word written in it
+	
+		EXAMPLE : content -> 'Hello word', when the cursor reaches the space between 'Hello' and 'word' the array 'word' will contain 'Hello'
 		
-	6.5 -
+	6.4 - Call "checkWord.c" to check if the word got in the document exists in the dictionary. If it is, "checkWord.c" will write the correction of the word in 'correctedWord' and return 1
 	
-		6.5.1 -
-		6.5.2 -
-		6.5.3 -
+		6.4.1 - If 1 has been returned by "checkWord.c" it means that there is a correction for the sent word and this line of code prints a warning for user with the position of the word to 
+		        correct (line and position in the line) and the corrected word
+		6.4.2 - Browse each character of the corrected word in order to put it in the corrected content
+		6.4.3 - Put the character got in the corrected content and increment 'k' to indicate where is the current end of the corrected content
 		
-	6.6 -
-	6.7 -
+	6.5 - If there are no spelling mistakes in the word and it it has been found in the dictionary, "checkWord.c" will return 0
 	
-7 -
-8 -
+		6.5.1 - Inform the user that the word has been found in the dictionary but there are no spelling mistakes
+		6.5.2 - Browse each character of the word in order to put it in the corrected content
+		6.5.3 - Put the character got in the corrected content and increment 'k' to indicate where is the current end of the corrected content
+		
+	6.6 - Execute if the word has not been found in the dictionary
+	
+		6.6.1 - Inform the user that the word has not been found in the dictionary
+		6.6.2 - Browse each character of the word in order to put it in the corrected content
+		6.6.3 - Put the character got in the corrected content and increment 'k' to indicate where is the current end of the corrected content
+		
+	6.7 - After all these executions if the character read in the document was a line break it it inserted in the corrected content
+	6.8 - After all these executions if the character read in the document was a space it it inserted in the corrected content
+	
+7 - If the character got from the document is not a line break of a space and if it is a letter (do not take special characters like commas), so it is a character of a word and is added at the end of 'word'
+8 - End 'word' to avoid unexpected characters at end of the word
 9 - The loop execute while it does not reach the end of the file, but by this way it get the last word of the file but do not add it in the corrected content
 	So the function executes the loop actions once more to get this last word
 
@@ -51,6 +65,7 @@ INFO -	Read the document, get each word and call "checkWord.c" to verify if the 
 	
 11 - End the corrected content array to avoid unexpected characters at end
 12 - Print the content of the file once corrected and before writing it in file instead of original text
+13 - Call "replaceContent.c" that will ask user if he wants to replace the content of the document with the corrected content and execute his will
 
 **/
 
@@ -86,7 +101,7 @@ void readDocument(primary* firstWord, char* path)
 		
 		char word[NAME_SIZE];
 		char correctedWord[NAME_SIZE];
-		int i = 0, j = 0, k = 0, line = 1, position = 0;
+		int i = 0, j = 0, k = 0, line = 1, position = 0, result;
 		
 		/** Step 5 **/
 		while((c = fgetc(file)) != EOF)
@@ -110,9 +125,12 @@ void readDocument(primary* firstWord, char* path)
 				/** Step 6.3 **/
 				word[i] = '\0';
 				i = 0;
+				result = -1;
+				
+				result = checkWord(firstWord,word,correctedWord);
 				
 				/** Step 6.4 **/
-				if(checkWord(firstWord,word,correctedWord))
+				if(result == 1)
 				{
 					/** Step 6.4.1 **/
 					printf("\nWARNING - Line %d Position %d - %s -> %s",line,position,word,correctedWord);
@@ -127,10 +145,10 @@ void readDocument(primary* firstWord, char* path)
 				}
 				
 				/** Step 6.5 **/
-				else
+				else if(result == 2)
 				{
 					/** Step 6.5.1 **/
-					printf("\nINFO - Line %d Position %d - \"%s\" does not exist in the dictionary !",line,position,word);
+					printf("\nINFO - Line %d Position %d - \"%s\" has been found in the dictionary !",line,position,word);
 					
 					/** Step 6.5.2 **/
 					for(j = 0; j < strlen(word); j++)
@@ -142,13 +160,28 @@ void readDocument(primary* firstWord, char* path)
 				}
 				
 				/** Step 6.6 **/
+				else
+				{
+					/** Step 6.6.1 **/
+					printf("\nINFO - Line %d Position %d - \"%s\" does not exist in the dictionary !",line,position,word);
+					
+					/** Step 6.6.2 **/
+					for(j = 0; j < strlen(word); j++)
+					{
+						/** Step 6.6.3 **/
+						content[k] = word[j];
+						k++;
+					}
+				}
+				
+				/** Step 6.7 **/
 				if(c == '\n')
 				{
 					content[k] = '\n';
 					k++;
 				}
 				
-				/** Step 6.7 **/
+				/** Step 6.8 **/
 				if(c == 32)
 				{
 					content[k] = 32;
@@ -157,7 +190,7 @@ void readDocument(primary* firstWord, char* path)
 			}
 			
 			/** Step 7 **/
-			else
+			else if((c > 64 && c < 91) || (c > 96 && c < 123))
 			{
 				word[i] = c;
 				i++;
@@ -209,6 +242,9 @@ void readDocument(primary* firstWord, char* path)
 		printf("\n\n================================================================================\n\n");
 		printf("Press enter to continue...");
 		getchar();
+		
+		/** Step 13 **/
+		replaceContent(path,content);
 	}
 	
 	else

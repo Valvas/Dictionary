@@ -1,2 +1,2 @@
-Ceci est un test du programme
-Ceci est un teste du progranme
+ceci est un test du programme
+ceci est un teste du programne
