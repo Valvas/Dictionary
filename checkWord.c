@@ -10,15 +10,18 @@ INFO -	Check if word sent in parameter resemble a word in the dictionnary to one
 	It must be set to 0 at the beginning of the loop because we need to compare differences for each word
 4 - Execute if the lengh of the word sent in parameter is longer than the word from the dictionary
 
-	4.1 -
-	4.2 -
-	4.3 -
+	4.1 - Get the difference of lengh between the two words
+	4.2 - Execute the loop for each character of the shortest word
+	4.3 - Increment 'count' for each different character in each word
+	
+		EXAMPLE : compare 'progress' and 'program', 'count' is going to worth 3 because 'program' is one character less than 'progress' and the two end
+				  characters of 'program' are different from 'progress'
 	
 5 - Execute if the lengh of the word sent in parameter is shorter than the word from the dictionary
 
-	5.1 -
-	5.2 -
-	5.3 -
+	5.1 - Get the difference of lengh between the two words
+	5.2 - Execute the loop for each character of the shortest word
+	5.3 - Increment 'count' for each different character in each word
 	
 6 - Execute if the two words have the same lengh
 
