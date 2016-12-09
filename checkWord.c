@@ -44,6 +44,11 @@ int checkWord(primary* firstWord, char* wordToCheck, char* correctedWord)
 	/** Step 1 **/
 	word* tmpWord = firstWord->wordTarget;
 	
+	if(strlen(wordToCheck) == 0)
+	{
+		return 3;
+	}
+	
 	/** Step 2 **/
 	for(int i = 0; i < strlen(wordToCheck); i++)
 	{
