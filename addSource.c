@@ -65,7 +65,7 @@ void addSource(head* listHead, primary* firstWord)
 						while(fgets(content,DEFINITION,file) != NULL)
 						{
 							/** Step 10 **/
-							getWord(firstWord,content);
+							createWord(firstWord,content);
 						}
 						
 						fclose(file);

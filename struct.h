@@ -10,8 +10,6 @@ struct source
 struct word
 {
 	char* title;
-	char* definition;
-	char* origin;
 	struct word* nextWord;
 };
 

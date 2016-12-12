@@ -18,8 +18,8 @@ INFO -	This function create a structure 'word' with the three parameters it rece
 
 **/
 
-void createWord(primary* firstWord, char* title, char* definition, char* origin)
-{
+void createWord(primary* firstWord, char* title)
+{	
 	/** Step 1 **/
 	word* newWord = malloc(sizeof(word));
 	
@@ -27,13 +27,9 @@ void createWord(primary* firstWord, char* title, char* definition, char* origin)
 	{
 		/** Step 2 **/
 		newWord->title = calloc(TITLE,sizeof(char));
-		newWord->definition = calloc(DEFINITION,sizeof(char));
-		newWord->origin = calloc(ORIGIN,sizeof(char));
 		
 		/** Step 3 **/
 		strcpy(newWord->title,title);
-		strcpy(newWord->definition,definition);
-		strcpy(newWord->origin,origin);
 		
 		/** Step 4 **/
 		newWord->nextWord = NULL;

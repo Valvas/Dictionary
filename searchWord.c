@@ -1,18 +1,14 @@
 #include "functions.h"
 
 /**
-
 INFO -	Browse all words in the linked list and print word corresponding to user's research
-
 1 - Get user's research
 2 - Loop to browse all the word linked list
 3 - Execute these instructions if the lengh of the word is over user's research lengh
-
 	3.1 - Increment 'wordDiff' with lengh difference between the word and the research
 	3.2 - Browse the word and the research and increment 'wordDiff' each time characters are differents
 	
 4 - Execute these instructions if user's research lengh is over the lengh of the word
-
 	4.1 - Increment 'wordDiff' with lengh difference between the word and the research
 	4.2 - Browse the word and the research and increment 'wordDiff' each time characters are differents
 	
@@ -22,7 +18,6 @@ INFO -	Browse all words in the linked list and print word corresponding to user'
 8 - Increment 'count' each time a word is found by the research in order to know is there is a result or not
 9 - Select the next word in the linked list in order to execute the loop again
 10 - If 'count' worth 0 it means that there is no result for the research
-
 **/
 
 void searchWord(word* wrd)
@@ -45,61 +40,62 @@ void searchWord(word* wrd)
 	{
 		wordDiff = 0;
 		
-		/** Step 3 **/
-		if(strlen(wrd->title) > strlen(value))
+		if(wrd->title[0] == value[0])
 		{
-			/** Step 3.1 **/
-			wordDiff = strlen(wrd->title) - strlen(value);
-			
-			/** Step 3.2 **/
-			for(i = 0; i < strlen(value); i++)
+			/** Step 3 **/
+			if(strlen(wrd->title) > strlen(value))
 			{
-				if(value[i] != wrd->title[i])
+				/** Step 3.1 **/
+				wordDiff = strlen(wrd->title) - strlen(value);
+			
+				/** Step 3.2 **/
+				for(i = 0; i < strlen(value); i++)
 				{
-					wordDiff++;
+					if(value[i] != wrd->title[i])
+					{
+						wordDiff++;
+					}
 				}
 			}
-		}
 		
-		/** Step 4 **/
-		else if(strlen(wrd->title) < strlen(value))
-		{
-			/** Step 4.1 **/
-			wordDiff = strlen(value) - strlen(wrd->title);
-			
-			/** Step 4.2 **/
-			for(j = 0; j < strlen(wrd->title); j++)
+			/** Step 4 **/
+			else if(strlen(wrd->title) < strlen(value))
 			{
-				if(value[j] != wrd->title[j])
+				/** Step 4.1 **/
+				wordDiff = strlen(value) - strlen(wrd->title);
+			
+				/** Step 4.2 **/
+				for(j = 0; j < strlen(wrd->title); j++)
 				{
-					wordDiff++;
+					if(value[j] != wrd->title[j])
+					{
+						wordDiff++;
+					}
 				}
 			}
-		}
 
-		/** Step 5 **/
-		else
-		{
-			for(j = 0; j < strlen(wrd->title); j++)
+			/** Step 5 **/
+			else
 			{
-				if(value[j] != wrd->title[j])
+				for(j = 0; j < strlen(wrd->title); j++)
 				{
-					wordDiff++;
+					if(value[j] != wrd->title[j])
+					{
+						wordDiff++;
+					}
 				}
 			}
-		}
-		
-		/** Step 6 **/
-		if(wordDiff <= LIMIT)
-		{
-			/** Step 7 **/
-			printf("\n%s :\n",wrd->title);
-			printf("\n%s\n",wrd->definition);
-			printf("\n%s\n",wrd->origin);
-			printf("\n======================================================================\n");
 			
-			/** Step 8 **/
-			count++;
+			/** Step 6 **/
+			if(wordDiff <= LIMIT)
+			{
+				/** Step 7 **/
+				printf("======================================================================\n");
+				printf("%s\n",wrd->title);
+			
+				/** Step 8 **/
+				count++;
+			}
 		}
 		
 		/** Step 9 **/

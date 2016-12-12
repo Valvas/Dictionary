@@ -18,9 +18,7 @@ void printWord(word* wrd)
 	{
 		/** Step 2 **/
 		printf("\n======================================================================\n");
-		printf("\n%s :\n",wrd->title);
-		printf("\n%s\n",wrd->definition);
-		printf("\n%s\n",wrd->origin);
+		printf("\n%s\n",wrd->title);
 		
 		/** Step 3 **/
 		printWord(wrd->nextWord);

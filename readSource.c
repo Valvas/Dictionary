@@ -23,7 +23,8 @@ void readSource(primary* firstWord, char* name)
 		/** Step 2 **/
 		while(fgets(wordContent,DEFINITION,file) != NULL)
 		{
-			getWord(firstWord,wordContent);
+			if(wordContent[strlen(wordContent) - 1] == '\n') wordContent[strlen(wordContent) - 1] = '\0';
+			createWord(firstWord,wordContent);
 		}
 		
 		fclose(file);

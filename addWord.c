@@ -36,31 +36,13 @@ void addWord(primary* firstWord, char* sourcePath)
 					fclose(file);
 					
 					char title[TITLE];
-					char definition[DEFINITION];
-					char origin[ORIGIN];
 					
 					title[0] = '\0';
-					definition[0] = '\0';
-					origin[0] = '\0';
 					
 					if(getTitle(title))
 					{
-						if(getDefinition(definition))
-						{
-							if(getOrigin(origin))
-							{
-								char word[DEFINITION];
-								
-								strcat(word,title);
-								strcat(word,";");
-								strcat(word,definition);
-								strcat(word,";");
-								strcat(word,origin);
-								
-								createWord(firstWord,title,definition,origin);
-								insertWordInSource(sourcePath,word);
-							}
-						}
+						createWord(firstWord,title);
+						insertWordInSource(sourcePath,title);
 					}
 				}
 				

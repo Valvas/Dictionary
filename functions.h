@@ -8,7 +8,7 @@
 #ifndef prototype
 #define prototype
 
-#define LIMIT 3
+#define LIMIT 2
 #define TITLE 100
 #define ORIGIN 100
 #define NAME_SIZE 50
@@ -63,12 +63,12 @@ void loadSources(head*);
 void deleteSource(head*);
 void freeSources(source*);
 void menu(head*,primary*);
-void getWord(primary*,char*);
 void addWord(primary*,char*);
 void correctDocument(primary*);
 void showSources(source*,int*);
 void selectSource(head*,char*);
 void addSource(head*,primary*);
+void createWord(primary*,char*);
 void readSource(primary*,char*);
 void replaceContent(char*,char*);
 void readDocument(primary*,char*);
@@ -76,7 +76,6 @@ void createSource(head*,primary*);
 void browseSources(head*,primary*);
 void manageSources(head*,primary*);
 void insertWordInSource(char*,char*);
-void createWord(primary*,char*,char*,char*);
 
 source* initSources(head*,char*);
 
