@@ -50,7 +50,6 @@ int newSource(head*,char*);
 int removeSourceInList(char*);
 int removeSource(head*,source*);
 int checkWord(primary*,char*,char*);
-int checkNumberOfArguments(char*,int*);				/** "formatSources.c" **/
 int checkSourceExistenceForAdding(head*,char*);
 int checkSourceExistenceForRemoving(head*,char*);
 
@@ -71,19 +70,13 @@ void showSources(source*,int*);
 void selectSource(head*,char*);
 void addSource(head*,primary*);
 void readSource(primary*,char*);
-void beginningFormat(char*,int*); 					/** "formatSources.c" **/
 void replaceContent(char*,char*);
 void readDocument(primary*,char*);
-void removeBlankAtEnd(char*,int*);					/** "formatSources.c" **/
 void createSource(head*,primary*);
 void browseSources(head*,primary*);
 void manageSources(head*,primary*);
 void insertWordInSource(char*,char*);
-void setContentToLowercase(char*,int*);				/** "formatSources.c" **/
-void printContentSourceFile(char*,char*);			/** "formatSources.c" **/
 void createWord(primary*,char*,char*,char*);
-void removeBlankAfterLineBreak(char*,int*,int); 	/** "formatSources.c" **/
-void removeBlankBeforeLineBreak(char*,int*,int); 	/** "formatSources.c" **/
 
 source* initSources(head*,char*);
 
