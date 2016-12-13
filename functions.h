@@ -43,7 +43,6 @@ int getTitle(char*);								/** "addWord.c" **/
 int entry(char*,int);
 int checkFile(char*);
 int getOrigin(char*);								/** "addWord.c" **/
-int getFileSize(FILE*);
 int getDefinition(char*);							/** "addWord.c" **/
 int addSourceInList(char*);
 int newSource(head*,char*);
@@ -54,6 +53,8 @@ int checkSourceExistenceForAdding(head*,char*);
 int checkSourceExistenceForRemoving(head*,char*);
 
 long integer(int);
+
+long long getFileSize(FILE*);
 
 void cleanBuffer();
 void freeWords(word*);

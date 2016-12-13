@@ -6,9 +6,10 @@ INFO -  This function return the number of characters in a file (counts break li
 
 **/
 
-int getFileSize(FILE* file)
+long long getFileSize(FILE* file)
 {
-    int c = 0, size = 0;
+    int c = 0;
+	long long size = 0;
 
     while((c = fgetc(file)) != EOF)
     {

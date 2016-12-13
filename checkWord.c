@@ -64,72 +64,73 @@ int checkWord(primary* firstWord, char* wordToCheck, char* correctedWord)
 	{
 		/** Step 3 **/
 		while(tmpWord)
-		{
+		{	
+			if(tmpWord->title[0] == wordToCheck[0])
+			{
+				/** Step 4 **/
+				count = 0;
 			
-			/** Step 4 **/
-			count = 0;
-			
-			/** Step 5 **/
-			if(strlen(tmpWord->title) < strlen(wordToCheck))
-			{		
-				count = strlen(wordToCheck) - strlen(tmpWord->title);
+				/** Step 5 **/
+				if(strlen(tmpWord->title) < strlen(wordToCheck))
+				{		
+					count = strlen(wordToCheck) - strlen(tmpWord->title);
 				
-				for(int i = 0; i < strlen(tmpWord->title); i++)
-				{
-					if(tmpWord->title[i] != wordToCheck[i])
+					for(int i = 0; i < strlen(tmpWord->title); i++)
 					{
-						count++;
+						if(tmpWord->title[i] != wordToCheck[i])
+						{
+							count++;
+						}
 					}
 				}
-			}
 			
-			/** Step 6 **/
-			else if(strlen(tmpWord->title) > strlen(wordToCheck))
-			{			
-				count = strlen(tmpWord->title) - strlen(wordToCheck);
+				/** Step 6 **/
+				else if(strlen(tmpWord->title) > strlen(wordToCheck))
+				{			
+					count = strlen(tmpWord->title) - strlen(wordToCheck);
 				
-				for(int j = 0; j < strlen(wordToCheck); j++)
-				{
-					if(tmpWord->title[j] != wordToCheck[j])
+					for(int j = 0; j < strlen(wordToCheck); j++)
 					{
-						count++;
+						if(tmpWord->title[j] != wordToCheck[j])
+						{
+							count++;
+						}
 					}
 				}
-			}
 			
-			/** Step 7 **/
-			else
-			{
-				/** Step 7.1 **/
-				for(int k = 0; k < strlen(wordToCheck); k++)
+				/** Step 7 **/
+				else
 				{
-					/** Step 7.2 **/
-					if(wordToCheck[k] != tmpWord->title[k])
+					/** Step 7.1 **/
+					for(int k = 0; k < strlen(wordToCheck); k++)
 					{
-						count++;
+						/** Step 7.2 **/
+						if(wordToCheck[k] != tmpWord->title[k])
+						{
+							count++;
+						}
 					}
 				}
-			}
 			
-			/** Step 8 **/
-			if(count == 1)
-			{
-				/** Step 8.1 **/
-				strcpy(correctedWord,tmpWord->title);
-				
-				/** Step 8.2 **/
-				return 1;
-			}
+				/** Step 8 **/
+				if(count == 1)
+				{
+					/** Step 8.1 **/
+					strcpy(correctedWord,tmpWord->title);
+				}
 			
-			/** Step 9 **/
-			else if(count == 0)
-			{
-				return 2;
+				/** Step 9 **/
+				else if(count == 0)
+				{
+					return 2;
+				}
 			}
 			
 			/** Step 10 **/
 			tmpWord = tmpWord->nextWord;
 		}
+		
+		return 1;
 	}
 	
 	else

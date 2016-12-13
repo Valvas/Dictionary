@@ -49,8 +49,6 @@ int main(int argc, char* argv[])
 	freeWords(firstWord->wordTarget);
 	
 	/** Step 8 **/
-	free(listHead->sourceTarget);
-	free(firstWord->wordTarget);
 	free(listHead);
 	free(firstWord);
 

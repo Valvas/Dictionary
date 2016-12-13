@@ -28,6 +28,8 @@ void loadSources(head* listHead)
 	
 	if(file != NULL)
 	{
+		printf("\nLoading program, please wait...");
+		
 		/** Step 3 **/
 		while(fgets(sourcePath,NAME_SIZE,file) != NULL)
         {

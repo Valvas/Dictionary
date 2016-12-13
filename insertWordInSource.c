@@ -13,7 +13,7 @@ INFO -	Insert the new word with its definition and source in the corresponding s
 
 void insertWordInSource(char* sourcePath, char* word)
 {
-	int size = 0;
+	long long size = 0;
 	
 	FILE* file = NULL;
 	
@@ -32,7 +32,7 @@ void insertWordInSource(char* sourcePath, char* word)
 	if(file != NULL)
 	{
 		/** Step 3 **/
-		if(size > 0)
+		if((long)size > 0)
 		{
 			fprintf(file,"\n%s",word);
 		}

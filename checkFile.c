@@ -11,13 +11,13 @@ int checkFile(char* name)
     /** Step 1 **/
     FILE* file = NULL;
 
-    int c = 0, p = 0, i = 0, k = 0, size = 0;
+    int c = 0, p = 0, i = 0, k = 0;
 
     file = fopen(name,"r");
 	
-	char content[getFileSize(file)];
+	long long size = getFileSize(file);
 	
-	size = getFileSize(file);
+	char *content = malloc(size * sizeof(char));
 
     if(file != NULL)
     {	
