@@ -14,7 +14,7 @@ INFO -	The first enum is used in the main menu ("menu.c")
 
 enum
 {
-   SEARCH_WORD = 1, ADD_WORD, MANAGE_SOURCES, CORRECT_DOCUMENT, EXIT
+   SEARCH_WORD = 1, ADD_WORD, MANAGE_SOURCES, EXIT
 };
 
 enum
